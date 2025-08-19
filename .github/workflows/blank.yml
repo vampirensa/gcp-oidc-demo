@@ -22,7 +22,7 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          token_format: 'id_token'
+          token_format: 'access_token'
           workload_identity_provider: 'projects/460967600907/locations/global/workloadIdentityPools/iam-lab-7-gh-pool/providers/iam-lab-7-gh-pool-oidc-provider'
           service_account: 'iam-lab-7-target@gcp-labs-tsrkga5t.iam.gserviceaccount.com'
 
@@ -32,3 +32,6 @@ jobs:
       - name: Run gcloud command
         run: |
           gcloud auth list
+          gcloud config set project gcp-labs-tsrkga5t
+          gcloud iam service-accounts get-iam-policy "iam-lab-7-target@gcp-labs-tsrkga5t.iam.gserviceaccount.com"
+          gcloud secrets list
