@@ -33,5 +33,4 @@ jobs:
         run: |
           gcloud auth list
           gcloud config set project gcp-labs-tsrkga5t
-          gcloud iam service-accounts get-iam-policy "iam-lab-7-target@gcp-labs-tsrkga5t.iam.gserviceaccount.com"
           gcloud secrets list
